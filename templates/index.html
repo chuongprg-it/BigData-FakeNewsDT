@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fake New Detection</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/css/style.css">
+  </head>
+  <body>
+   
+    <header id="header">
+      <nav class="navbar" id="navbar">
+        <ul class="nav-list">
+            <li><a href="/">Home</a></li>
+            <li><a href="/streaming">Streaming</a></li>
+        </ul>
+      </nav>
+    </header>
+    
+    <div class="blurform">
+      <h1>⚠️Fake New Detection⚠️</h1>
+      <div class="formover">
+        <form class="form-in" action="/check" method="post">
+          <label class="label l1" for="input_text">🖊️Nhập đoạn văn cần kiểm tra</label>
+          <textarea class="textarea" name="input_text" rows="4" cols="50" required></textarea><br>
+          <input class="button-check" type="submit" value="Check">
+          
+          <!-- {% if result %}
+              <p>{{ result }}</p>
+          {% endif %} -->
+          <!-- {% if result == "Tin thật" %}
+              <label class="label l2">📝Kết quả</label>
+              <p class="result-true">{{ result }}</p>
+          {% elif result == "Tin giả" %}
+              <label class="label l2">📝Kết quả</label>
+              <p class="result-fake">{{ result }}</p>
+          {% endif %} -->
+
+          <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Input Text</th>
+                    <th scope="col">Detection Value</th>
+                </tr>
+            </thead>
+            <tbody id="prediction-results">
+                {% for item in results %}
+                    <tr>
+                        <td>{{ item['input_text'] }}</td>
+                        <td>{{ item['detection_value'] }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        </form>
+      </div>
+    </div>
+    
+   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+          var result = "{{ result }}";
+          var resultElement = document.querySelector('.result-true, .result-fake');
+
+          if (result === "Tin thật") {
+              resultElement.classList.add('result-true');
+          } else if (result === "Tin giả") {
+              resultElement.classList.add('result-fake');
+          }
+      });
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var navbar = document.getElementById('navbar');
+        var lastScrollTop = 0;
+
+        window.addEventListener('scroll', function () {
+            var scrollTop = window.scrollY || document.documentElement.scrollTop;
+
+            if (scrollTop > lastScrollTop) {
+                // Cuộn xuống
+                navbar.classList.remove('sticky');
+            } else {
+                // Cuộn lên
+                navbar.classList.add('sticky');
+            }
+
+            lastScrollTop = scrollTop;
+        });
+    });
+</script>
+  </body>
+</html>
