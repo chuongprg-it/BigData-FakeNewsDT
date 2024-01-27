@@ -29,15 +29,19 @@
           <!-- {% if result %}
               <p>{{ result }}</p>
           {% endif %} -->
-          <!-- {% if result == "Tin thật" %}
+        <div class="result-container">
+          {% if result == "Tin thật" %}
               <label class="label l2">📝Kết quả</label>
               <p class="result-true">{{ result }}</p>
+              <p class="in-true">{{input_text}}</p>
           {% elif result == "Tin giả" %}
               <label class="label l2">📝Kết quả</label>
               <p class="result-fake">{{ result }}</p>
-          {% endif %} -->
+              <p class="in-fake">{{input_text}}</p>
+          {% endif %}
+        </div>
 
-          <table class="table table-striped">
+          <!-- <table class="table table-striped">
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">Input Text</th>
@@ -45,14 +49,14 @@
                 </tr>
             </thead>
             <tbody id="prediction-results">
-                {% for item in results %}
+                
                     <tr>
-                        <td>{{ item['input_text'] }}</td>
-                        <td>{{ item['detection_value'] }}</td>
+                        <td>{{input_text}}</td>
+                        <td>{{result}}</td>
                     </tr>
-                {% endfor %}
+                
             </tbody>
-        </table>
+        </table> -->
         </form>
       </div>
     </div>
