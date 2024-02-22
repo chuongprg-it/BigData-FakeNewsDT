@@ -1,6 +1,6 @@
 # Fake News Detection 📝
 
-This project aims to detect fake news using Big Data technologies. We use various machine learning models and natural language processing techniques to analyze and classify news articles.
+This project aims to detect fake news using Big Data technologies. We use various machine learning models and natural language processing techniques to analyze and classify news articles..
 
 ## Table of Contents
 
