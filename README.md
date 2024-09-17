@@ -32,7 +32,7 @@ We collected our data from various online sources. The data consists of news art
 
 ## Data Processing
 
-We use Apache Kafka for real-time data streaming and PySpark for data processing. You can find the code for this in the [kafka](BigData-FakeNewDT/kafka) directory.
+We use Apache Kafka for real-time data streaming and Python for data processing. You can find the code for this in the [kafka](BigData-FakeNewDT/kafka) directory.
 
 ## Model Training
 
