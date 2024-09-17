@@ -24,7 +24,7 @@ Fake news is a significant issue in today's digital age. This project aims to ta
 
 ## Technologies Used
 
-We use a combination of Python, Apache Kafka, and PySpark for data processing and model training.
+We use a combination of Python, Apache Kafka, and Python for data processing and model training.
 
 ## Data Collection
 
